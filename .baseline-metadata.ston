@@ -1,1 +1,5 @@
-{	"repositories" : {		"github://feenkcom/XML-XMLParser/src" : "v0.6.2"	}}
+{
+	"repositories" : {
+		"github://feenkcom/XML-XMLParser/src" : "v0.6.3"
+	}
+}
