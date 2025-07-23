@@ -10,11 +10,11 @@ BaselineOfXPathForGlamorousToolkit >> baseline: spec [
 	spec for: #'common' do: [
 		spec
 			baseline: 'XMLParserForGlamorousToolkit' with: [
-				spec repository: 'github://feenkcom/XML-XMLParser:v0.6.3/src' ].
+				spec repository: 'github://feenkcom/XML-XMLParser:v0.6.4/src' ].
 
 		spec package: 'XPath-Core' with: [
-			spec requires: #('XMLParserForGlamorousToolkit') ].
+			spec requires: #(#XMLParserForGlamorousToolkit) ].
 		spec package: 'XPath-Tests' with: [
-			spec requires: #('XPath-Core') ].
+			spec requires: #(#'XPath-Core') ].
 	]
 ]
