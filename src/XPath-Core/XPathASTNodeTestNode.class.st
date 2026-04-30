@@ -7,7 +7,7 @@ Class {
 	#category : #'XPath-Core-Compilation-AST'
 }
 
-{ #category : #'private ' }
+{ #category : #'class initialization' }
 XPathASTNodeTestNode class >> generateNodeTestClasses [
 	"
 	self generateNodeTestClasses
@@ -25,13 +25,10 @@ XPathASTNodeTestNode class >> generateNodeTestClasses [
 			astNodeSuperClassName := 'XPath', astNodeClass superclass nameWithoutPrefixAndSuffix.
 			astNodeSuperClass := XMLClassFinder classNamed: astNodeSuperClassName.
 			nodeTestClass :=
-				astNodeSuperClass
-					subclass: astNodeClassName asSymbol
-					instanceVariableNames:
-						(' ' join:
-							(astNodeClass instanceVariables collect: #asString))
-					classVariableNames: ''
-					package: #'XPath-Core-Compilation'.
+				((astNodeSuperClass
+					<< astNodeClassName asSymbol)
+					slots: (astNodeClass instanceVariables collect: #asString);
+					package: #'XPath-Core-Compilation') install.
 			astNodeClass methodsDo: [:method | | protocol |
 				protocol := method protocol.
 				((#('printing' 'visiting') anySatisfy: [:each |
